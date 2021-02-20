@@ -1,1 +1,1 @@
-module.exports = require('./dest/node-args').args(process.argv);
+module.exports = require('./dest/node-args')

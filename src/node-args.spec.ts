@@ -6,15 +6,14 @@ describe('Node Args module', function () {
         const argv = ['a', 'b'];
         const obj = args(argv);
 
-        expect(obj).to.have.property('_').that.deep.equals(argv);
-        expect(obj).to.have.property('additional').that.deep.equals([]);
+        expect(obj).to.have.property('additional').that.deep.equals(argv);
     });
 
     it('Should get additional values', function () {
         const argv = ['a', 'b', 'c', 'd'];
         const obj = args(argv);
 
-        expect(obj.additional).to.be.deep.equal(['c', 'd']);
+        expect(obj.additional).to.be.deep.equal(argv);
     });
 
     it('Should get shorthand values', function () {
@@ -27,6 +26,7 @@ describe('Node Args module', function () {
         expect(obj).to.have.deep.property('d', 2);
         expect(obj).to.have.deep.property('e', false);
         expect(obj).to.have.deep.property('f', 'something');
+        expect(obj.additional).to.be.deep.equal(['a', 'b', 'c']);
     });
 
     it('Should get named values', function () {
@@ -37,6 +37,7 @@ describe('Node Args module', function () {
         expect(obj).to.have.deep.property('def', 2);
         expect(obj).to.have.deep.property('g', false);
         expect(obj).to.have.deep.property('h', 'something');
+        expect(obj.additional).to.be.deep.equal(['a', 'b', 'c']);
     });
 
     it('Should handle wrong values', function () {
@@ -44,8 +45,8 @@ describe('Node Args module', function () {
         const obj = args(argv);
 
         expect(obj).to.exist;
-        expect(Object.keys(obj)).to.be.deep.equal(['_', 'additional', 'g']);
-        expect(obj).to.have.deep.property('additional').that.deep.equals(['c', 'd']);
+        expect(Object.keys(obj)).to.be.deep.equal(['additional', 'g']);
+        expect(obj).to.have.deep.property('additional').that.deep.equals(['a', 'b', 'c', 'd']);
         expect(obj).to.have.deep.property('g', true);
     });
 
@@ -54,8 +55,9 @@ describe('Node Args module', function () {
         const obj = args(argv);
 
         expect(obj).to.exist;
-        expect(Object.keys(obj).sort()).to.be.deep.equals(['_', 'additional', 'c', 'd']);
+        expect(Object.keys(obj).sort()).to.be.deep.equals(['additional', 'c', 'd']);
         expect(obj).to.has.deep.property('c', true);
         expect(obj).to.has.deep.property('d', true);
+        expect(obj.additional).to.be.deep.equal(['a', 'b']);
     });
 });

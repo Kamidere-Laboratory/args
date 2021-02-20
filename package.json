@@ -1,6 +1,6 @@
 {
-  "name": "node-args",
-  "version": "2.1.8",
+  "name": "@kamidere/node-args",
+  "version": "3.0.0",
   "description": "Most minimalistic parameter processor for node.",
   "main": "index.js",
   "types": "./src/node-args.d.ts",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/christiansandor/args"
+    "url": "https://github.com/Kamidere-Laboratory/args"
   },
   "keywords": [
     "node-args",
@@ -24,16 +24,30 @@
     "parameter",
     "parameters"
   ],
-  "author": "Sándor Krisztián",
+  "orginalAuthor": "Sándor Krisztián",
+  "author": {
+    "name": "Kamide.re Laboratory",
+    "url": "https://gitlab.com/kamidere-laboratory"
+  },
+  "contributors": [
+    {
+      "name": "Robert \"RunAge\" Gajda",
+      "url": "https://gitlab.com/RunAge"
+    },
+    {
+      "name": "Sándor Krisztián",
+      "url": "https://github.com/christiansandor"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "^3.5.1",
-    "@types/mocha": "^2.2.41",
-    "@types/node": "^7.0.13",
-    "chai": "^3.5.0",
-    "coveralls": "^2.13.0",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "@types/node": "^14.14.31",
+    "chai": "^4.3.0",
+    "coveralls": "^3.1.0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "typescript": "^2.2.2"
+    "mocha": "^8.3.0",
+    "typescript": "^4.1.5"
   }
 }

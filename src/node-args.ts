@@ -1,5 +1,4 @@
 export interface Args {
-    _ : Array<string>;
     additional: Array<string|number>;
     [others: string]: string|number|boolean|Array<string|number>;
 }
@@ -16,11 +15,10 @@ function parseValue(val : string) : string|number|boolean {
 
 function getArgs(argv : Array<string>) : Args {
     const args : Args = {
-        _: argv.slice(0, 2),
         additional: [],
     };
 
-    let i = 2;
+    let i = 0;
     let prev : string[] = [];
 
     function addValueToPrev(val : string) {
@@ -49,7 +47,7 @@ function getArgs(argv : Array<string>) : Args {
         if (vals !== undefined) parse(vals);
     }
 
-    for (let i = 2, l = argv.length; i < l; i++) {
+    for (let i = 0, l = argv.length; i < l; i++) {
         parse(argv[i]);
     }
 

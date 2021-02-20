@@ -1,3 +1,4 @@
+Fork of [christiansandor/args](https://github.com/christiansandor/args)  
 [![Build Status](https://travis-ci.org/christiansandor/args.svg?branch=master)](https://travis-ci.org/christiansandor/args)
 [![Coverage Status](https://coveralls.io/repos/github/christiansandor/args/badge.svg?branch=master)](https://coveralls.io/github/christiansandor/args?branch=master)
 [![NSP Status](https://nodesecurity.io/orgs/sandor-krisztian/projects/cc2b9197-5cdb-47b6-a17f-32642da55040/badge)](https://nodesecurity.io/orgs/sandor-krisztian/projects/cc2b9197-5cdb-47b6-a17f-32642da55040)
@@ -13,7 +14,7 @@ npm install node-args
 
 And use it as:
 ```
-var args = require('node-args');
+var args = require('node-args')(process.argv);
 ```
 
  
@@ -34,8 +35,7 @@ node my.js -t -ab=2 -c false -p no some additional data 2 --argsis awesome --ano
 So you will get:
 ```
 {
-    _: ['node', node file path],
-    additional: ['some', 'additional', 'data', 2],
+    additional: ['node', 'node file path', 'some', 'additional', 'data', 2],
     t: true,
     a: 2,
     b: 2,

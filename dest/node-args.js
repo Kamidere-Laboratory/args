@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.args = void 0;
 function parseValue(val) {
     var num = +val;
     if (num)
@@ -12,10 +13,9 @@ function parseValue(val) {
 }
 function getArgs(argv) {
     var args = {
-        _: argv.slice(0, 2),
         additional: [],
     };
-    var i = 2;
+    var i = 0;
     var prev = [];
     function addValueToPrev(val) {
         var k = prev.length;
@@ -42,7 +42,7 @@ function getArgs(argv) {
         if (vals !== undefined)
             parse(vals);
     }
-    for (var i_1 = 2, l = argv.length; i_1 < l; i_1++) {
+    for (var i_1 = 0, l = argv.length; i_1 < l; i_1++) {
         parse(argv[i_1]);
     }
     if (prev.length)
