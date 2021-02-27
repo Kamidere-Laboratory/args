@@ -1,7 +1,6 @@
 Fork of [christiansandor/args](https://github.com/christiansandor/args)  
-[![Build Status](https://travis-ci.org/christiansandor/args.svg?branch=master)](https://travis-ci.org/christiansandor/args)
-[![Coverage Status](https://coveralls.io/repos/github/christiansandor/args/badge.svg?branch=master)](https://coveralls.io/github/christiansandor/args?branch=master)
-[![NSP Status](https://nodesecurity.io/orgs/sandor-krisztian/projects/cc2b9197-5cdb-47b6-a17f-32642da55040/badge)](https://nodesecurity.io/orgs/sandor-krisztian/projects/cc2b9197-5cdb-47b6-a17f-32642da55040)
+[![Build Status](https://travis-ci.org/Kamidere-Laboratory/args.svg?branch=master)](https://travis-ci.org/Kamidere-Laboratory/args)
+[![Coverage Status](https://coveralls.io/repos/github/Kamidere-Laboratory/args/badge.svg?branch=master)](https://coveralls.io/github/Kamidere-Laboratory/args?branch=master)
 
 # Args
 The most minimalistic parameter processor for node. Really.
@@ -9,17 +8,18 @@ The most minimalistic parameter processor for node. Really.
 ## Usage
 Couldn't be simpler, just install it like:
 ```
-npm install node-args
+npm install @kamidere/node-args
 ```
 
 And use it as:
 ```
-var args = require('node-args')(process.argv);
-```
+const { getArgs } = require('@kamidere/node-args');
 
- 
-### You're done.
-No other options needed. *If you need more features, use [commander](https://www.npmjs.com/package/commander) or whatever else you fancy.*
+const args = getArgs(process.argv);
+
+const anyString = "-a --test nope";
+const argsFromString = getArgs(anyString.split(' '));
+```
 
 ### Call node with
 - your named parameters prefixed with **--**
@@ -27,6 +27,13 @@ No other options needed. *If you need more features, use [commander](https://www
   parameters in mind like `-ab = -a -b`)
 - your parameters and assigned values separated with a
 **space** or an **equals** sign
+
+my.js
+```
+const { getArgs } = require('@kamidere/node-args');
+
+console.log(getArgs(process.argv));
+```
 
 ```
 node my.js -t -ab=2 -c false -p no some additional data 2 --argsis awesome --another=1
